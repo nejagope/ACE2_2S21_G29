@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2">
+
+    <ImageView
+        android:id="@+id/img_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/profile"></ImageView>
+
+    <TextView
+        android:id="@+id/tvt_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_profile"
+        android:shadowColor="#8C1D1D"
+        android:text="@string/text_name"
+        android:textAlignment="center"
+        android:textColor="#6174DD"
+        android:textSize="30dp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:id="@+id/tvt_temperatura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvt_nombre"
+        android:text="Temperatura"
+        android:textColor="#4C10B5"
+        android:textSize="30dp"></TextView>
+
+    <TextView
+        android:id="@+id/tvt_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvt_nombre"
+        android:layout_alignParentEnd="true"
+        android:paddingRight="20dp"
+        android:text="37 grados"
+        android:textColor="#6B40BA"
+        android:textSize="30dp"></TextView>
+
+    <TextView
+        android:id="@+id/tvt_humedad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvt_temperatura"
+        android:text="Oxigeno"
+        android:textColor="#4C10B5"
+        android:textSize="30dp"></TextView>
+
+    <TextView
+        android:id="@+id/tvt_hmd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvt_temp"
+        android:layout_alignParentEnd="true"
+        android:paddingRight="20dp"
+        android:text="37 g"
+        android:textColor="#6B40BA"
+        android:textSize="30dp"></TextView>
+
+    <TextView
+        android:id="@+id/tvt_pulsaciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvt_humedad"
+        android:text="Pulsaciones"
+        android:textColor="#4C10B5"
+        android:textSize="30dp"></TextView>
+
+    <TextView
+        android:id="@+id/tvt_pulso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvt_hmd"
+        android:layout_alignParentEnd="true"
+        android:paddingRight="20dp"
+        android:text="112 rpm"
+        android:textColor="#6B40BA"
+        android:textSize="30dp"></TextView>
+
+</RelativeLayout>
