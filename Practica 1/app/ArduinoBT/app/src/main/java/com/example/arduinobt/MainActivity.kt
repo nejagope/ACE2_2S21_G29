@@ -21,6 +21,6 @@ class MainActivity : AppCompatActivity() {
             bluetoothJhr.Disp_Seleccionado(view, i, MainActivity2::class.java)
         }
 
-        Toast.makeText(this, "Bienvenido", Toast.LENGTH_LONG).show()
+        //Toast.makeText(this, "Bienvenido", Toast.LENGTH_LONG).show()
     }
 }

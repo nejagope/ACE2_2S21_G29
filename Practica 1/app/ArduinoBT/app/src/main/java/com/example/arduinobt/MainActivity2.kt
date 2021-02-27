@@ -3,10 +3,7 @@ package com.example.arduinobt
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ListView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
@@ -29,38 +26,49 @@ class MainActivity2 : AppCompatActivity() {
         val temp :TextView = findViewById(R.id.tvt_temp)
         val oxigeno :TextView = findViewById(R.id.tvt_hmd)
         val rpm :TextView = findViewById(R.id.tvt_pulso)
+        val info : EditText = findViewById(R.id.edt_info)
 
-        nombre.text = GlobalValues.nombre + " " + GlobalValues.apellido
+        //nombre.text = GlobalValues.nombre + " " + GlobalValues.apellido
+        var codigo = GlobalValues.codigo
 
         bluetoothJhr = BluetoothJhr(MainActivity::class.java,this)
-        var me:String = ""
 
         thread(start = true){
+            var datos: String = ""
+
             while(boolean){
                 Thread.sleep(1000)
-                val datos = bluetoothJhr.Rx()
+                datos = bluetoothJhr.Rx()
+                //datos = "12,15,28#"
 
-                val t = "38"
-                val o = "77"
-                val r = "126"
+                //this@MainActivity2.runOnUiThread(java.lang.Runnable {
+                    if(datos.contains("#")){
+                        var lineas = datos.split("#").toTypedArray()
 
-                 me = datos.toString()
+                        for (linea in lineas){
+                            var valores = linea.split(",").toTypedArray()
 
-                this@MainActivity2.runOnUiThread(java.lang.Runnable {
-                    temp.text = t + " grados"
-                    oxigeno.text = o + " oxg"
-                    rpm.text = r + " rpm"
+                            if(valores.size==3){
+                                var t = valores[0]
+                                var o = valores[1]
+                                var r = valores[2]
 
+                                //temp.text = t + " grados"
+                                //oxigeno.text = o + " do"
+                                //rpm.text = r + " ppm"
 
-                    Toast.makeText(this, me, Toast.LENGTH_LONG).show()
-                    val url = "http://practica1arq2.azurewebsites.net/prueba.asmx/CargarInformacion"
-                    //requestWebService(url, GlobalValues.codigo, t, o, r)
+                                //info.setText(linea.toString())
 
-                    temp.text = ""
-                    oxigeno.text = ""
-                    rpm.text = ""
-                })
-                me = ""
+                                this@MainActivity2.runOnUiThread(java.lang.Runnable {
+                                    val url = "http://practica1arq2.azurewebsites.net/prueba.asmx/CargarInformacion"
+                                    //Toast.makeText(this, codigo, Toast.LENGTH_LONG).show()
+                                    requestWebService(url, codigo, t, o, r)
+                                })
+                            }
+                        }
+                        bluetoothJhr.ResetearRx()
+                    }
+                //})
             }
         }
     }

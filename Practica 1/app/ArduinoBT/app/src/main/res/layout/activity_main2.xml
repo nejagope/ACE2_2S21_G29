@@ -60,7 +60,7 @@
         android:layout_below="@id/tvt_temp"
         android:layout_alignParentEnd="true"
         android:paddingRight="20dp"
-        android:text="37 g"
+        android:text="37 do"
         android:textColor="#6B40BA"
         android:textSize="30dp"></TextView>
 
@@ -80,8 +80,27 @@
         android:layout_below="@id/tvt_hmd"
         android:layout_alignParentEnd="true"
         android:paddingRight="20dp"
-        android:text="112 rpm"
+        android:text="112 ppm"
         android:textColor="#6B40BA"
         android:textSize="30dp"></TextView>
+
+    <EditText
+        android:id="@+id/edt_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_close"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="#9C27B0" />
+
+    <Button
+        android:id="@+id/btn_close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#3F51B5"
+        android:text="Desactivar Bluetooth"
+        android:textColor="#FFFFFF" />
+
 
 </RelativeLayout>
