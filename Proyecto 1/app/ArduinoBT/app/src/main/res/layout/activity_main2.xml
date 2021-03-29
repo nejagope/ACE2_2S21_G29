@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2">
+
+    <ImageView
+        android:id="@+id/img_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/profile"></ImageView>
+
+    <TextView
+        android:id="@+id/tvt_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_profile"
+        android:shadowColor="#8C1D1D"
+        android:text="@string/text_name"
+        android:textAlignment="center"
+        android:textColor="#6174DD"
+        android:textSize="30dp"
+        android:textStyle="bold"></TextView>
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvt_nombre"
+        android:background="#3F51B5"
+        android:text="Iniciar Intento"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btn_finish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_start"
+        android:background="#3F51B5"
+        android:enabled="false"
+        android:text="Finalizar Intento"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btn_Salir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#DA1111"
+        android:text="Salir"
+        android:textColor="#FFFFFF" />
+
+
+</RelativeLayout>
