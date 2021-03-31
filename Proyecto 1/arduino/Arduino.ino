@@ -115,8 +115,6 @@ void comenzar_lecturas()
         if (lectura_actual == 0)
         {
               Serial.println("Primera Lectura");
-              //Serial.println(n);
-              //n++;
               float aux[2];
               get_values(aux);
               tiempo2 = millis();
@@ -135,36 +133,38 @@ void comenzar_lecturas()
 
           if (gpsSerial.available())
           {
-
-                Serial.print("Segunda Lectura");
-                //Serial.println(n);
-                //n++;
+                Serial.println("Segunda Lectura");
                 float aux[2];
                 get_values(aux);
-                salida += String(distancia) + "," + String(tiempo2 / 1000) + ",1," + "#";
-                Serial.print(salida);
-                wifi.println(salida);
+                distancia = DistanciaKm(lectura_inicial[1], aux[1], lectura_inicial[0], aux[2]);
+                lectura_inicial[0] = aux[0];
+                lectura_inicial[1] = aux[1];
           }
-          
+          salida += String(distancia) + "," + String(tiempo2 / 1000) + ",1," + "#";
+          Serial.println(salida);
+          wifi.println(salida);
+          distancia = 0;
           if (heartRate > 100)
           {
             inflar_membrana();
           }
         }
-        else if ((tiempo2 > tiempo3 + 1000))
+        else if ((tiempo2 > tiempo3 + 2000))
         {
           tiempo3 = millis(); //Actualiza el tiempo actual
           if (gpsSerial.available())
           {
-                Serial.print("Segunda Lectura");
-                //Serial.println(n);
-                //n++;
+                Serial.println("Segunda Lectura");
                 float aux[2];
                 get_values(aux);
-                salida += String(distancia) + "," + String(tiempo2 / 1000) + ",0," + "#";
-                Serial.print(salida);
-                wifi.println(salida);
+                distancia = DistanciaKm(lectura_inicial[1], aux[1], lectura_inicial[0], aux[2]);
+                lectura_inicial[0] = aux[0];
+                lectura_inicial[1] = aux[1];
           }
+          salida += String(distancia) + "," + String(tiempo2 / 1000) + ",0," + "#";
+          Serial.println(salida);
+          wifi.println(salida);
+          distancia = 0;
           if (heartRate > 100)
           {
             inflar_membrana();
@@ -185,15 +185,11 @@ void inflar_membrana()
 
 void get_values(float arr[])
 {
-  boolean get_ll = true;
-  while(get_ll)
-  {
     while(gpsSerial.available())
     {
       int c = gpsSerial.read();
       if(gps.encode(c))  
       {
-        get_ll = false;
         float latitude, longitude;
         gps.f_get_position(&latitude, &longitude);
         Serial.print("Latitude: ");
@@ -205,7 +201,6 @@ void get_values(float arr[])
         break;
       }
     }
-  }
 }
 
 float DistanciaKm(float posOrigenLa, float posDestinoLa, float posOrigenLo, float posDestinoLo)
