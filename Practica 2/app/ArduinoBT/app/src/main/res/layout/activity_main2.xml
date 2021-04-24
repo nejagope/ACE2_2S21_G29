@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2">
+
+    <ImageView
+        android:id="@+id/img_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/profile"></ImageView>
+
+    <TextView
+        android:id="@+id/tvt_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_profile"
+        android:shadowColor="#8C1D1D"
+        android:text="Esperando..."
+        android:textAlignment="center"
+        android:textColor="#6174DD"
+        android:textSize="30dp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:id="@+id/tvt_nombreApellido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/tvt_nombre"
+        android:shadowColor="#8C1D1D"
+        android:text="Nombre Apellido"
+        android:textAlignment="textEnd"
+        android:layout_marginEnd="10dp"
+        android:textColor="#6174DD"
+        android:textSize="30dp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:id="@+id/tvt_peso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="175dp"
+        android:layout_below="@id/tvt_nombreApellido"
+        android:shadowColor="#8C1D1D"
+        android:text="Peso"
+        android:textAlignment="textStart"
+        android:layout_marginEnd="20dp"
+        android:textColor="#6174DD"
+        android:textSize="30dp"
+        android:textStyle="bold"></TextView>
+
+
+
+    <EditText
+        android:id="@+id/txt_pesoC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/tvt_nombreApellido"
+        android:layout_toRightOf="@id/tvt_peso"
+        android:ems="3"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/tvt_kg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/tvt_nombreApellido"
+        android:layout_toRightOf="@id/txt_pesoC"
+        android:shadowColor="#8C1D1D"
+        android:text="Kg"
+        android:textAlignment="textEnd"
+        android:layout_marginEnd="10dp"
+        android:textColor="#6174DD"
+        android:textSize="20dp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:id="@+id/tvt_reloj"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvt_peso"
+        android:layout_marginTop="10dp"
+        android:shadowColor="#8C1D1D"
+        android:text="00:00"
+        android:textAlignment="center"
+        android:textColor="@color/purple_700"
+        android:textSize="60dp"
+        android:textStyle="bold"></TextView>
+
+    <Button
+        android:id="@+id/btn_start"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/tvt_reloj"
+        android:background="#3F51B5"
+        android:text="Iniciar Intento"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btn_finish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/btn_start"
+        android:background="#3F51B5"
+        android:enabled="false"
+        android:text="Finalizar Intento"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btn_Salir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#DA1111"
+        android:text="Salir"
+        android:textColor="#FFFFFF" />
+
+
+</RelativeLayout>
