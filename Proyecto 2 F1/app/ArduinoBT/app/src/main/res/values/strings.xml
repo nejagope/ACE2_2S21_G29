@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Arqui2 - Proyecto 2</string>
+    <string name="usu_hint">Usuario</string>
+    <string name="pass_hint">Password</string>
+    <string name="text_btnLogin">Iniciar Sesión</string>
+    <string name="text_name">Enviando datos...</string>
+</resources>
